@@ -3,6 +3,7 @@ using CouponApi;
 using CouponApi.Data;
 using CouponApi.Models;
 using CouponApi.Models.DTO;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(MappingConfig));
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 var app = builder.Build();
 
@@ -31,10 +33,11 @@ app.MapGet("/api/coupon/{id:int}", (int id) => {
     return Results.Ok(CouponStore.couponList.FirstOrDefault(s=>s.Id == id));
 }).WithName("GetCoupon").Produces<Coupon>(200);
 
-app.MapPost("/api/coupon", (IMapper _mapper, [FromBody] CouponCreateDTO coupon_C_DTO) => {
-    if (string.IsNullOrEmpty(coupon_C_DTO.Name))
+app.MapPost("/api/coupon", async (IMapper _mapper, IValidator<CouponCreateDTO> _validator, [FromBody] CouponCreateDTO coupon_C_DTO) => {
+    var validationResult = await _validator.ValidateAsync(coupon_C_DTO);
+    if (!validationResult.IsValid)
     {
-        return Results.BadRequest("Invalid Coupon Id or Name!");
+        return Results.BadRequest(validationResult.Errors.FirstOrDefault().ToString());
     }
     if (CouponStore.couponList.FirstOrDefault(x => x.Name.ToLower() == coupon_C_DTO.Name.ToLower()) != null)
     {

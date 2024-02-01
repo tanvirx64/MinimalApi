@@ -31,3 +31,7 @@ G:\vivacoms\MinimalApi\CouponApi\obj\Debug\net7.0\refint\CouponApi.dll
 G:\vivacoms\MinimalApi\CouponApi\obj\Debug\net7.0\CouponApi.pdb
 G:\vivacoms\MinimalApi\CouponApi\obj\Debug\net7.0\CouponApi.genruntimeconfig.cache
 G:\vivacoms\MinimalApi\CouponApi\obj\Debug\net7.0\ref\CouponApi.dll
+G:\vivacoms\MinimalApi\CouponApi\bin\Debug\net7.0\AutoMapper.dll
+G:\vivacoms\MinimalApi\CouponApi\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+G:\vivacoms\MinimalApi\CouponApi\bin\Debug\net7.0\FluentValidation.dll
+G:\vivacoms\MinimalApi\CouponApi\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll

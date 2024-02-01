@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "tnQeNGi2dUq3NOr/expumC5S/i5T6JcKzlYaQsy9oUrX6aFEDsSLwGCJyyvBtJkp2Gej+k5zrplg63R+WwlbYg==",
+  "dgSpecHash": "YzPnQGGHbpkJvMA81uiussD4qb7nN1+yIi2tt5SLEhM6asZ/OdPE6qX9AGJCtCpwHqbBXuZqXe5/4423r22y7Q==",
   "success": true,
   "projectFilePath": "G:\\vivacoms\\MinimalApi\\CouponApi\\CouponApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tanvir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Tanvir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\Tanvir\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\Tanvir\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "C:\\Users\\Tanvir\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\Tanvir\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Tanvir\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
