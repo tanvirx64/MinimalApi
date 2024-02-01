@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "sr8DfffSf8d1qyb8vDa/Tc4idvl2MzikjfPllUMr4TyNP0EBPB1a4s7QL50PL39gigmi2G7TD+7pm98m+YMcdw==",
+  "dgSpecHash": "Oj07zVN2CRaOD6yJCdyLP2TtSPgQ6aBPigIFMkC3pC3KXMnM1NjPqiHCaFDkuXsiI/kYFj+hd4jwEa57p9iZzA==",
   "success": true,
   "projectFilePath": "G:\\vivacoms\\MinimalApi\\CouponApi\\CouponApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Tanvir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Tanvir\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
+    "C:\\Users\\Tanvir\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Tanvir\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Tanvir\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\Tanvir\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
