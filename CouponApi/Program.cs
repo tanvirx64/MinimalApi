@@ -18,13 +18,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/api/coupons",() => {
+app.MapGet("/api/coupons",(ILogger<Program> _logger) => {
+    _logger.Log(LogLevel.Information, "Fetching all coupons");
     return Results.Ok(CouponStore.couponList);
-}).WithName("Coupons");
+}).WithName("Coupons").Produces<IEnumerable<Coupon>>(200); ;
 
 app.MapGet("/api/coupon/{id:int}", (int id) => {
     return Results.Ok(CouponStore.couponList.FirstOrDefault(s=>s.Id == id));
-}).WithName("GetCoupon");
+}).WithName("GetCoupon").Produces<Coupon>(200);
 
 app.MapPost("/api/coupon", ([FromBody] Coupon coupon) => {
     if (coupon.Id != 0 || string.IsNullOrEmpty(coupon.Name))
@@ -41,7 +42,7 @@ app.MapPost("/api/coupon", ([FromBody] Coupon coupon) => {
 
     //return Results.Created($"/api/coupon/{coupon.Id}",coupon);
     return Results.CreatedAtRoute("GetCoupon", new { id = coupon.Id }, coupon);
-}).WithName("CreateCoupon");
+}).WithName("CreateCoupon").Accepts<Coupon>("application/json").Produces<Coupon>(201).Produces(400);
 
 app.MapPut("api/coupon", () => { });
 
