@@ -1,3 +1,5 @@
+using AutoMapper;
+using CouponApi;
 using CouponApi.Data;
 using CouponApi.Models;
 using CouponApi.Models.DTO;
@@ -9,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 
 var app = builder.Build();
 
@@ -28,7 +31,7 @@ app.MapGet("/api/coupon/{id:int}", (int id) => {
     return Results.Ok(CouponStore.couponList.FirstOrDefault(s=>s.Id == id));
 }).WithName("GetCoupon").Produces<Coupon>(200);
 
-app.MapPost("/api/coupon", ([FromBody] CouponCreateDTO coupon_C_DTO) => {
+app.MapPost("/api/coupon", (IMapper _mapper, [FromBody] CouponCreateDTO coupon_C_DTO) => {
     if (string.IsNullOrEmpty(coupon_C_DTO.Name))
     {
         return Results.BadRequest("Invalid Coupon Id or Name!");
@@ -37,24 +40,13 @@ app.MapPost("/api/coupon", ([FromBody] CouponCreateDTO coupon_C_DTO) => {
     {
         return Results.BadRequest("Coupon Name Already Exist!");
     }
-    Coupon coupon = new Coupon() { 
-        Name = coupon_C_DTO.Name,
-        Percent = coupon_C_DTO.Percent,
-        IsActive = coupon_C_DTO.IsActive,
-    };
+    Coupon coupon = _mapper.Map<Coupon>(coupon_C_DTO);
 
     coupon.Id = CouponStore.couponList.OrderByDescending(x => x.Id).FirstOrDefault().Id + 1;
     coupon.Created = DateTime.Now;
     CouponStore.couponList.Add(coupon);
 
-    CouponDTO couponDTO = new CouponDTO()
-    {
-        Id = coupon.Id,
-        Name = coupon.Name,
-        Percent = coupon.Percent,
-        IsActive = coupon.IsActive,
-        Created = coupon.Created,
-    };
+    CouponDTO couponDTO = _mapper.Map<CouponDTO>(coupon);
 
     //return Results.Created($"/api/coupon/{coupon.Id}",coupon);
     return Results.CreatedAtRoute("GetCoupon", new { id = couponDTO.Id }, couponDTO);
