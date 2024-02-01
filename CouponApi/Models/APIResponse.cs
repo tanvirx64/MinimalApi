@@ -6,7 +6,7 @@ namespace CouponApi.Models
     {
         public APIResponse()
         {
-            var ErrorMessages = new List<string>();
+            ErrorMessages = new List<string>();
         }
         public bool IsSuccess { get; set; }
         public Object Result { get; set; }
